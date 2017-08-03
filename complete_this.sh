@@ -3,7 +3,7 @@
 sudo chmod +w extract/live/filesystem.packages
 sudo chroot edit dpkg-query -W --showformat='${Package} ${Version}\n' | sudo tee extract/live/filesystem.packages
 sudo cp extract/live/filesystem.packages extract/live/filesystem.manifest-desktop
-sudo mksquashfs edit extract/live/filesystem.squashfs -b 1048576
+sudo mksquashfs edit extract/live/filesystem.squashfs -b 1048576 -no-duplicates
 printf $(sudo du -sx --block-size=1 edit | cut -f1) | sudo tee extract/live/filesystem.size
 cd extract
  sudo rm md5sum.txt
