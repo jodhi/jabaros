@@ -1,4 +1,5 @@
 #!/bin/bash
+ sudo umount edit/dev
 sudo chmod +w extract/live/filesystem.packages
 sudo chroot edit dpkg-query -W --showformat='${Package} ${Version}\n' | sudo tee extract/live/filesystem.packages
 sudo cp extract/live/filesystem.packages extract/live/filesystem.manifest-desktop
